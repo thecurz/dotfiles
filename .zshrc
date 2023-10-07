@@ -116,9 +116,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # My config
 source ~/.bashrc
-
 source /home/curz/miniconda3/etc/profile.d/conda.sh
-
 # 
 # Aliases
 alias cdw="cd /mnt/c/Users/theca/Documents"
