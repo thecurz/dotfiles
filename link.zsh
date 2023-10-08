@@ -1,3 +1,5 @@
+# nvim
+ln -s -f ~/dotfiles/.config/nvim ~/.config/
 # git
 ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
 # tmux
