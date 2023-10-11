@@ -1,5 +1,6 @@
 -- n, v, i, t = mode names
 
+
 local M = {}
 vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
 vim.keymap.set("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { silent = true })
@@ -292,6 +293,14 @@ M.telescope = {
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
     ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    ["<leader>ps"] = { function()
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<leader>ps', function()
+              builtin.grep_string({ search = vim.fn.input("Grep > ")});
+      end)
+
+      builtin.grep_string({ search = vim.fn.input("Grep > ")});
+    end, "Fuzzy finder"}
   },
 }
 
