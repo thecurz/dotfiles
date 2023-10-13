@@ -11,6 +11,13 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.clangd.setup {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+}
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -19,6 +26,12 @@ lspconfig.pyright.setup({
 -- TypeScript
 lspconfig.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" }
+  capabilities = capabilities,
+  -- init_options = {
+  --   preferences = {
+  --     disableSuggestions = true,
+  --   }
+  -- }
+  -- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  -- cmd = { "typescript-language-server", "--stdio" }
 }
