@@ -11,6 +11,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.java_language_server.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"java"},
+}
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
