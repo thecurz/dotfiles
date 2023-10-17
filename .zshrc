@@ -4,14 +4,17 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+export PATH="$HOME/dotfiles/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 # source ~/.bashrc
 source /home/curz/miniconda3/etc/profile.d/conda.sh
-
+export CLASSPATH=".:/home/curz/opt/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
+export PATH="/home/curz/opt/bin/:$PATH"
+export JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-amd64"
+export LD_LIBRARY_PATH=/usr/local/lib
 alias cdw="cd /mnt/c/Users/theca/Documents/"
 alias cdl="cd ~"
 

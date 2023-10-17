@@ -11,10 +11,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.java_language_server.setup {
+lspconfig.jdtls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {"java"},
+  single_file_support = true,
 }
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)

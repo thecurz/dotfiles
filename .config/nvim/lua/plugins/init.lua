@@ -2,7 +2,7 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
   "nvim-lua/plenary.nvim",
-
+  "mfussenegger/nvim-jdtls",
   {
   "alexghergh/nvim-tmux-navigation",
   event = "VeryLazy",
