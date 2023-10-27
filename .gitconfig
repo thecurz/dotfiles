@@ -9,3 +9,6 @@
 	name = Carlos Castilla
 [init]
 	defaultBranch = main
+[http]
+	postBuffer = 157286400
+	version = HTTP/2

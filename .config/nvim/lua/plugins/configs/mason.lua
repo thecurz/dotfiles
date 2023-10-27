@@ -1,5 +1,11 @@
 local options = {
-  ensure_installed = { "lua-language-server", "prettier", "clangd", "typescript-language-server", "jdtls" }, -- not an option from mason.nvim
+  ensure_installed = {
+    "lua-language-server",
+    "prettier",
+    "clangd",
+    "typescript-language-server",
+    "clang-format",
+     }, -- not an option from mason.nvim
 
   PATH = "skip",
 
