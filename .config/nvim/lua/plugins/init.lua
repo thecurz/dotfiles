@@ -2,7 +2,42 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
   "nvim-lua/plenary.nvim",
-  "mfussenegger/nvim-jdtls",
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jay-babu/mason-nvim-dap.nvim",
+    },
+    opts = {
+      handlers = {},
+    },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_initialized["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    config = function(_, _)
+      require("core.utils").load_mappings("dap")
+    end
+  },
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy" ,
@@ -11,20 +46,20 @@ local default_plugins = {
     end,
   },
   {
-  "alexghergh/nvim-tmux-navigation",
-  event = "VeryLazy",
-  config = function()
-    local nvim_tmux_nav = require("nvim-tmux-navigation")
-    nvim_tmux_nav.setup({
-      disable_when_zoomed = true,
-      -- defaults to false
-      keybindings = {
-        left = "<C-h>",
-        down = "<C-j>",
-        up = "<C-k>",
-        right = "<C-l>",
-        last_active = "<C-\\>",
-        next = "<C-Space>",
+    "alexghergh/nvim-tmux-navigation",
+    event = "VeryLazy",
+    config = function()
+      local nvim_tmux_nav = require("nvim-tmux-navigation")
+      nvim_tmux_nav.setup({
+        disable_when_zoomed = true,
+        -- defaults to false
+        keybindings = {
+          left = "<C-h>",
+          down = "<C-j>",
+          up = "<C-k>",
+          right = "<C-l>",
+          last_active = "<C-\\>",
+          next = "<C-Space>",
         },
       })
     end,

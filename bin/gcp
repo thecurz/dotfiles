@@ -12,7 +12,7 @@ if [ -f "$file_name" ]; then
     echo "Compiling and running $file_name"
     g++ -std=c++11 -O2 -Wall "$file_name" -o "a.out"
     if [ $? -eq 0 ]; then
-        "./${file_name%.cpp}"
+        "./a.out"
     else
         echo "Compilation failed."
     fi

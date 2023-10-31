@@ -3,7 +3,7 @@ local on_attach = config.on_attach
 local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
-local servers = {"html", "cssls", "clangd", "java"}
+local servers = {"html", "cssls", "clangd"}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -11,12 +11,12 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.jdtls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = {"java"},
-  single_file_support = true,
-}
+-- lspconfig.jdtls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes = {"java"},
+--   single_file_support = true,
+-- }
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false

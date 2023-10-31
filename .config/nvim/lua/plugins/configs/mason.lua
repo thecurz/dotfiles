@@ -5,6 +5,8 @@ local options = {
     "clangd",
     "typescript-language-server",
     "clang-format",
+    "black",
+    "codelldb",
      }, -- not an option from mason.nvim
 
   PATH = "skip",

@@ -8,6 +8,19 @@ vim.keymap.set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { silent = true })
 vim.keymap.set("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", { silent = true })
 vim.keymap.set("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNavigateNext<CR>", { silent = true })
+M.dap = {
+  plugin = true,
+  n = {
+    ["<leader>db"] = {
+      "<cmd> DapToggleBreakpoint <CR>",
+      "Add breakpoint at line",
+    },
+    ["<leader>dr"] = {
+      "<cmd> DapContinue <CR>",
+      "Start or continue the debugger",
+    }
+  }
+}
 M.general = {
   i = {
     -- go to  beginning and end
