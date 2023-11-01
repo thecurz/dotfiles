@@ -5,6 +5,22 @@ local opts = {
   sources = {
     null_ls.builtins.formatting.clang_format,
     null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.prettier.with({
+      filetypes = {
+        "javascript",
+        "typescript",
+        "css",
+        "scss",
+        "html",
+        "json",
+        "yaml",
+        "markdown",
+        "graphql",
+        "md",
+        "txt",
+      },
+      only_local = "node_modules/.bin",
+    }),
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

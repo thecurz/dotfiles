@@ -11,33 +11,30 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- lspconfig.jdtls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = {"java"},
---   single_file_support = true,
--- }
-lspconfig.clangd.setup {
+lspconfig.clangd.setup({
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
-}
+})
+lspconfig.prettier.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes= {"python"},
 })
--- TypeScript
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  -- init_options = {
-  --   preferences = {
-  --     disableSuggestions = true,
-  --   }
-  -- }
-  -- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  -- cmd = { "typescript-language-server", "--stdio" }
-}
+-- lspconfig.tsserver.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   -- init_options = {
+--   --   preferences = {
+--   --     disableSuggestions = true,
+--   --   }
+--   -- }
+--   -- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+--   -- cmd = { "typescript-language-server", "--stdio" }
+-- }
