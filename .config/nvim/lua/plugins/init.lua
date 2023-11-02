@@ -32,6 +32,20 @@ local default_plugins = {
       end
     end,
   },
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     require "plugins.configs.formatter"
+  --   end
+  -- },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "plugins.configs.lint"
+  --   end
+  -- },
   {
     "mfussenegger/nvim-dap",
     config = function(_, _)

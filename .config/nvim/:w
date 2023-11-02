@@ -18,6 +18,10 @@ lspconfig.clangd.setup({
   end,
   capabilities = capabilities,
 })
+lspconfig.prettier.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -30,7 +34,7 @@ lspconfig.tsserver.setup {
     preferences = {
       disableSuggestions = true,
     }
-  },
-  -- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  -- cmd = { "typescript-language-server", "--stdio" }
+  }
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
 }

@@ -3,6 +3,7 @@ local options = {
     "lua-language-server",
     "prettier",
     "clangd",
+    "eslint-lsp",
     "typescript-language-server",
     "clang-format",
     "black",
