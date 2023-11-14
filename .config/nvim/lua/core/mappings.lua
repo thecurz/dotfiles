@@ -8,6 +8,20 @@ vim.keymap.set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { silent = true })
 vim.keymap.set("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", { silent = true })
 vim.keymap.set("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNavigateNext<CR>", { silent = true })
+M.copilot = {
+  i = {
+    ["<C-l>"] = {function()
+      vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+    end, "Copilot Accept", {
+        replace_keycodes = true,
+        nowait = true,
+        silent = true,
+        expr = true,
+        noremap = true
+      }}
+  }
+}
+
 M.dap = {
   plugin = true,
   n = {
@@ -24,6 +38,7 @@ M.dap = {
 M.general = {
   i = {
     -- go to  beginning and end
+    ["<Tab>"] = { [[    ]], "Insert 4 spaces" },
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     ["<C-e>"] = { "<End>", "End of line" },
 
@@ -182,6 +197,9 @@ M.lspconfig = {
       "LSP signature help",
     },
 
+    ["<leader>cp"] = {
+      ":Copilot panel<CR>",
+      "Open Copilot panel" },
     ["<leader>D"] = {
       function()
         vim.lsp.buf.type_definition()

@@ -1,7 +1,24 @@
 -- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
 -- List of all default plugins & their definitions
 local default_plugins = {
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   -- event = "InsertEnter",
+  --   lazy = false,
+  --   opts = overrides.copilot,
+  -- },
+  {
+    "github/copilot.vim",
+    lazy = false,
+    config = function()  -- Mapping tab is already used by NvChad       
+      vim.g.copilot_no_tab_map = true;
+      vim.g.copilot_assume_mapped = true;
+      vim.g.copilot_tab_fallback = "";
+    end
+  },
+  {
   "nvim-lua/plenary.nvim",
+  },
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
@@ -57,6 +74,19 @@ local default_plugins = {
     event = "VeryLazy" ,
     opts = function()
       return require("plugins.configs.null-ls")
+    end,
+  },
+  {
+    "nvim-lua/plenary.nvim",
+    lazy = false
+  },
+  {
+    'laytan/tailwind-sorter.nvim',
+    lazy=false,
+    dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
+    build = 'cd formatter && npm i && npm run build',
+    config = function()
+      return require("plugins.configs.tailwind-sorter")
     end,
   },
   {
