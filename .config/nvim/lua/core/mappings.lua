@@ -153,7 +153,21 @@ M.comment = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "Toggle comment",
     },
-  },
+    -- copy selected into "+y
+    ["<C-c>"] = {
+      function()
+        vim.cmd [[silent! normal! "+y]]
+      end,
+      "Copy selected",
+    },
+    -- paste selected "+p
+    ["C-v"] = {
+      function()
+        vim.cmd [[silent! normal! "+p]]
+      end,
+      "Paste selected",
+    },
+  }
 }
 
 M.lspconfig = {
