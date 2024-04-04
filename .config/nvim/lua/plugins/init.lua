@@ -1,12 +1,4 @@
--- All plugins have lazy=true by default,to load a plugin on startup just lazy=false
--- List of all default plugins & their definitions
 local default_plugins = {
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   -- event = "InsertEnter",
-  --   lazy = false,
-  --   opts = overrides.copilot,
-  -- },
   {
     "github/copilot.vim",
     lazy = false,
@@ -49,20 +41,6 @@ local default_plugins = {
       end
     end,
   },
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     require "plugins.configs.formatter"
-  --   end
-  -- },
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require "plugins.configs.lint"
-  --   end
-  -- },
   {
     "mfussenegger/nvim-dap",
     config = function(_, _)
@@ -191,7 +169,7 @@ local default_plugins = {
     end,
   },
 
-  -- git stuff
+  -- git
   {
     "lewis6991/gitsigns.nvim",
     ft = { "gitcommit", "diff" },
@@ -219,7 +197,7 @@ local default_plugins = {
     end,
   },
 
-  -- lsp stuff
+  -- lsp
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
