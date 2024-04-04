@@ -38,7 +38,7 @@ M.dap = {
 M.general = {
   i = {
     -- go to  beginning and end
-    ["<Tab>"] = { [[    ]], "Insert 4 spaces" },
+    ["<Tab>"] = { [[  ]], "Insert 4 spaces" },
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     ["<C-e>"] = { "<End>", "End of line" },
 
