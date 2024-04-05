@@ -1,6 +1,6 @@
 local options = {
   ensure_installed = {
-    "golangci-lint-langserver",
+    "gopls",
     "lua-language-server",
     "prettier",
     "clangd",
