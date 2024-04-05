@@ -3,8 +3,15 @@ local null_ls = require("null-ls")
 
 local opts = {
   sources = {
+    --go install -v github.com/incu6us/goimports-reviser/v3@latest
+    --go install mvdan.cc/gofumpt@latest
+    --go install github.com/segmentio/golines@latest
+    -- null_ls.builtins.formatting.golines,
+    null_ls.builtins.formatting.gofumpt,
+    null_ls.builtins.formatting.goimports_reviser,
     null_ls.builtins.formatting.clang_format,
     null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.stylua,
     null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.formatting.prettier,
   },
