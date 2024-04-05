@@ -19,6 +19,7 @@ export CLASSPATH=".:/home/curz/opt/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
 
 # Go
 export PATH="$HOME/go/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 
 # Java
 export PATH="/home/curz/opt/bin/:$PATH"
