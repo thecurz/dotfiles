@@ -17,6 +17,10 @@ source /home/curz/miniconda3/etc/profile.d/conda.sh
 # Antlr4
 export CLASSPATH=".:/home/curz/opt/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
 
+# Go
+export PATH="$HOME/go/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+
 # Java
 export PATH="/home/curz/opt/bin/:$PATH"
 export JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-amd64"

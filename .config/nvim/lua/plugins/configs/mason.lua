@@ -1,5 +1,6 @@
 local options = {
   ensure_installed = {
+    "gopls",
     "lua-language-server",
     "prettier",
     "clangd",
