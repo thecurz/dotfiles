@@ -1,3 +1,4 @@
+startx
 ### Settings for Languages and Tools ###
 
 # Zsh

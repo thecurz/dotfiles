@@ -9,3 +9,4 @@ ln -s -f ~/dotfiles/.zshrc ~/.zshrc
 ln -s -f ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 ln -s -f ~/dotfiles/.p10k.zsh ~/.p10k.zsh
 ln -s -f ~/dotfiles/powerlevel10k/ ~/
+ln -s -f ~/dotfiles/.clang-format ~/.clang-format
