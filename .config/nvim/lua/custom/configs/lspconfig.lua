@@ -10,6 +10,10 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 lspconfig.gopls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -26,6 +30,13 @@ lspconfig.gopls.setup({
       },
     }
   }
+})
+lspconfig.jdtls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"jdtls"},
+  filetypes = {"java"},
+  root_dir = util.root_pattern("pom.xml", ".git"),
 })
 lspconfig.clangd.setup({
   on_attach = function(client, bufnr)

@@ -5,9 +5,11 @@ local options = {
     "prettier",
     "clangd",
     "eslint-lsp",
+    "tailwindcss-language-server",
     "typescript-language-server",
     "clang-format",
     "black",
+    "jdtls",
     "codelldb",
      }, -- not an option from mason.nvim
 
