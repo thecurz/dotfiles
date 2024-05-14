@@ -24,7 +24,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 # Java
 export PATH="/home/curz/opt/bin/:$PATH"
-export JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-amd64"
+# export JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-amd64"
 
 # Nvim
 export NVM_DIR="$HOME/.nvm"
@@ -33,7 +33,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # C/C++
 export LD_LIBRARY_PATH=/usr/local/lib # Workaround to make libs work
-alias gcp="~/dotfiles/bin/gcp"
+alias cpg="~/dotfiles/bin/cpg"
 
 ### Aliases ###
 
@@ -53,3 +53,5 @@ alias env_activate="source env/bin/activate"
 
 # git
 alias gc="git commit -m"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
