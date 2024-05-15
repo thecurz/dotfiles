@@ -1,4 +1,6 @@
-startx
+if [[ "$(uname -s)" == "Linux" && -f "/etc/arch-release" ]]; then
+    startx
+fi
 ### Settings for Languages and Tools ###
 
 # Zsh
