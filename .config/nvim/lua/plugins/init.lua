@@ -2,77 +2,82 @@ local default_plugins = {
   {
     "github/copilot.vim",
     lazy = false,
-    config = function()  -- Mapping tab is already used by NvChad       
-      vim.g.copilot_no_tab_map = true;
-      vim.g.copilot_assume_mapped = true;
-      vim.g.copilot_tab_fallback = "";
-    end
-  },
-  {
-  "nvim-lua/plenary.nvim",
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jay-babu/mason-nvim-dap.nvim",
-    },
-    opts = {
-      handlers = {},
-    },
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_initialized["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
+    config = function() -- Mapping tab is already used by NvChad
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_assume_mapped = true
+      vim.g.copilot_tab_fallback = ""
     end,
   },
   {
-    "mfussenegger/nvim-dap",
-    config = function(_, _)
-      require("core.utils").load_mappings("dap")
-    end
+    "andweeb/presence.nvim",
   },
   {
+    "nvim-lua/plenary.nvim",
+  },
+  -- {
+  --   "jay-babu/mason-nvim-dap.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     "jay-babu/mason-nvim-dap.nvim",
+  --   },
+  --   opts = {
+  --     handlers = {},
+  --   },
+  -- },
+  --
+  -- { "nvim-neotest/nvim-nio" },
+  -- {
+  --   "rcarriga/nvim-dap-ui",
+  --   event = "VeryLazy",
+  --   dependencies = "mfussenegger/nvim-dap",
+  --   config = function()
+  --     local dap = require "dap"
+  --     local dapui = require "dapui"
+  --     dapui.setup()
+  --     dap.listeners.after.event_initialized["dapui_config"] = function()
+  --       dapui.open()
+  --     end
+  --     dap.listeners.before.event_initialized["dapui_config"] = function()
+  --       dapui.close()
+  --     end
+  --     dap.listeners.before.event_exited["dapui_config"] = function()
+  --       dapui.close()
+  --     end
+  --   end,
+  -- },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   config = function(_, _)
+  --     require("core.utils").load_mappings "dap"
+  --   end,
+  -- },
+  {
     "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy" ,
+    event = "VeryLazy",
     opts = function()
-      return require("plugins.configs.null-ls")
+      return require "plugins.configs.null-ls"
     end,
   },
   {
     "nvim-lua/plenary.nvim",
-    lazy = false
+    lazy = false,
   },
   {
-    'laytan/tailwind-sorter.nvim',
-    lazy=false,
-    dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
-    build = 'cd formatter && npm i && npm run build',
+    "laytan/tailwind-sorter.nvim",
+    lazy = false,
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+    build = "cd formatter && npm i && npm run build",
     config = function()
-      return require("plugins.configs.tailwind-sorter")
+      return require "plugins.configs.tailwind-sorter"
     end,
   },
   {
     "alexghergh/nvim-tmux-navigation",
     event = "VeryLazy",
     config = function()
-      local nvim_tmux_nav = require("nvim-tmux-navigation")
-      nvim_tmux_nav.setup({
+      local nvim_tmux_nav = require "nvim-tmux-navigation"
+      nvim_tmux_nav.setup {
         disable_when_zoomed = true,
         -- defaults to false
         keybindings = {
@@ -83,7 +88,7 @@ local default_plugins = {
           last_active = "<C-\\>",
           next = "<C-Space>",
         },
-      })
+      }
     end,
   },
   {

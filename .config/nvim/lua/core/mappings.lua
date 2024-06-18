@@ -1,6 +1,5 @@
 -- n, v, i, t = mode names
 
-
 local M = {}
 vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
 vim.keymap.set("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { silent = true })
@@ -10,16 +9,20 @@ vim.keymap.set("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", { silent = 
 vim.keymap.set("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNavigateNext<CR>", { silent = true })
 M.copilot = {
   i = {
-    ["<C-l>"] = {function()
-      vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
-    end, "Copilot Accept", {
+    ["<C-l>"] = {
+      function()
+        vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
+      end,
+      "Copilot Accept",
+      {
         replace_keycodes = true,
         nowait = true,
         silent = true,
         expr = true,
-        noremap = true
-      }}
-  }
+        noremap = true,
+      },
+    },
+  },
 }
 
 M.dap = {
@@ -32,13 +35,13 @@ M.dap = {
     ["<leader>dr"] = {
       "<cmd> DapContinue <CR>",
       "Start or continue the debugger",
-    }
-  }
+    },
+  },
 }
 M.general = {
   i = {
     -- go to  beginning and end
-    ["<Tab>"] = { [[  ]], "Insert 4 spaces" },
+    ["<Tab>"] = { [[  ]], "Insert 2 spaces" },
     ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
     ["<C-e>"] = { "<End>", "End of line" },
 
@@ -167,7 +170,7 @@ M.comment = {
       end,
       "Paste selected",
     },
-  }
+  },
 }
 
 M.lspconfig = {
@@ -213,7 +216,8 @@ M.lspconfig = {
 
     ["<leader>cp"] = {
       ":Copilot panel<CR>",
-      "Open Copilot panel" },
+      "Open Copilot panel",
+    },
     ["<leader>D"] = {
       function()
         vim.lsp.buf.type_definition()
@@ -227,7 +231,6 @@ M.lspconfig = {
       end,
       "LSP rename",
     },
-
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
@@ -338,14 +341,17 @@ M.telescope = {
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
     ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
-    ["<leader>ps"] = { function()
-      local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>ps', function()
-              builtin.grep_string({ search = vim.fn.input("Grep > ")});
-      end)
+    ["<leader>ps"] = {
+      function()
+        local builtin = require "telescope.builtin"
+        vim.keymap.set("n", "<leader>ps", function()
+          builtin.grep_string { search = vim.fn.input "Grep > " }
+        end)
 
-      builtin.grep_string({ search = vim.fn.input("Grep > ")});
-    end, "Fuzzy finder"}
+        builtin.grep_string { search = vim.fn.input "Grep > " }
+      end,
+      "Fuzzy finder",
+    },
   },
 }
 
