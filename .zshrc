@@ -34,7 +34,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # C/C++
-export LD_LIBRARY_PATH=/usr/local/lib # Workaround to make libs work
+#export LD_LIBRARY_PATH=/usr/local/lib # Workaround to make libs work
 alias cpg="~/dotfiles/bin/cpg"
 
 ### Aliases ###
