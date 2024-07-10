@@ -153,7 +153,7 @@ local default_plugins = {
 		end,
 	},
 	{
-		"williamoman/mason-lspconfig.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local mason_lspconfig = require("mason-lspconfig")
