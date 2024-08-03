@@ -44,6 +44,17 @@ local default_plugins = {
 					["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 					["<C-e>"] = cmp.mapping.abort(), -- close completion window
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							local entry = cmp.get_selected_entry()
+							if not entry then
+								cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+							end
+							cmp.confirm()
+						else
+							fallback()
+						end
+					end, { "i", "s", "c" }),
 				}),
 				-- sources for autocompletion
 				sources = cmp.config.sources({
@@ -218,10 +229,10 @@ local default_plugins = {
 				disable_when_zoomed = true,
 				-- defaults to false
 				keybindings = {
-					left = "<C-h>",
-					down = "<C-j>",
-					up = "<C-k>",
-					right = "<C-l>",
+					--left = "<C-h>",
+					--down = "<C-j>",
+					--up = "<C-k>",
+					--right = "<C-l>",
 					last_active = "<C-\\>",
 					next = "<C-Space>",
 				},
