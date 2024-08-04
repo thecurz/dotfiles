@@ -3,22 +3,22 @@ vim.keymap.set("i", "<Tab>", [[  ]])
 vim.g.mapleader = " "
 vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
 -- Copilot
+
+--let g:copilot_no_tab_map = v:true
+--let g:copilot_assume_mapped = v:true
+
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
 vim.keymap.set("i", "<C-l>", function()
 	vim.fn.feedkeys(vim.fn["copilot#Accept"]())
-end, { noremap = true, silent = true })
+end, { noremap = false, silent = true })
 
 -- switch between windows
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-
-vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
-vim.keymap.set("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { silent = true })
-vim.keymap.set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { silent = true })
-vim.keymap.set("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { silent = true })
-vim.keymap.set("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", { silent = true })
-vim.keymap.set("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNavigateNext<CR>", { silent = true })
+--vim.keymap.set("n", "<C-h>", "<C-w>h")
+--vim.keymap.set("n", "<C-l>", "<C-w>l")
+--vim.keymap.set("n", "<C-j>", "<C-w>j")
+--vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 -- Comments
 --vim.keymap.set("n", "<leader>/", function()
