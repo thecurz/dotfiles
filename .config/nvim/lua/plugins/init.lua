@@ -1,14 +1,4 @@
 local default_plugins = {
-	--{
-	--"numToStr/Comment.nvim",
-	--opts = {
-	--toggler = {
-	--line = "<leader>b",
-	--},
-	--opleader = {},
-	--extra = {},
-	--},
-	--},
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -21,12 +11,8 @@ local default_plugins = {
 		},
 		config = function()
 			local cmp = require("cmp")
-
 			local luasnip = require("luasnip")
-
-			-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 			require("luasnip.loaders.from_vscode").lazy_load()
-
 			cmp.setup({
 				completion = {
 					completeopt = "menu,menuone,preview,noselect",
@@ -37,8 +23,8 @@ local default_plugins = {
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-					["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+					["<C-k>"] = cmp.mapping.select_prev_item(),
+					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
@@ -54,7 +40,7 @@ local default_plugins = {
 						else
 							fallback()
 						end
-					end, { "i", "s", "c" }),
+					end, { "i", "s" }),
 				}),
 				-- sources for autocompletion
 				sources = cmp.config.sources({
@@ -81,7 +67,7 @@ local default_plugins = {
 			{
 				"<leader>A",
 				function()
-					require("harpoon"):list():append()
+					require("harpoon"):list():add()
 				end,
 				desc = "harpoon file",
 			},
@@ -192,12 +178,8 @@ local default_plugins = {
 			require("custom.configs.lspconfig").setup()
 		end,
 	},
-
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
+		"Mofiqul/dracula.nvim",
 	},
 	{
 		"github/copilot.vim",
@@ -208,6 +190,7 @@ local default_plugins = {
 			vim.g.copilot_tab_fallback = ""
 		end,
 	},
+
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "VeryLazy",
@@ -221,24 +204,25 @@ local default_plugins = {
 	},
 
 	{
-		"alexghergh/nvim-tmux-navigation",
-		event = "VeryLazy",
-		config = function()
-			local nvim_tmux_nav = require("nvim-tmux-navigation")
-			nvim_tmux_nav.setup({
-				disable_when_zoomed = true,
-				-- defaults to false
-				keybindings = {
-					--left = "<C-h>",
-					--down = "<C-j>",
-					--up = "<C-k>",
-					--right = "<C-l>",
-					last_active = "<C-\\>",
-					next = "<C-Space>",
-				},
-			})
-		end,
+		"christoomey/vim-tmux-navigator",
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+		keys = {
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+		},
 	},
+	--{
+	--"alexghergh/nvim-tmux-navigation",
+	--},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		Lazy = false,
@@ -274,8 +258,4 @@ local default_plugins = {
 	},
 }
 local config = require("plugins.configs.lazy_nvim")
---
--- if #config.plugins > 0 then
--- table.insert(default_plugins, {import = config.plugins})
--- end
 require("lazy").setup(default_plugins, config)
