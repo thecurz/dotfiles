@@ -10,8 +10,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.wo.number = true
 
 require("remap")
 require("plugins")
-vim.cmd([[colorscheme tokyonight-night]])
+vim.cmd([[colorscheme dracula]])
