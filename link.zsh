@@ -1,3 +1,7 @@
+# i3
+ln -s -f ~/dotfiles/.config/i3 ~/.config/
+ln -s -f ~/dotfiles/.config/picom ~/config/
+
 # nvim
 ln -s -f ~/dotfiles/.config/nvim ~/.config/
 # git
