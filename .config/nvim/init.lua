@@ -13,6 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.wo.number = true
 
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+
 require("remap")
 require("plugins")
 vim.cmd([[colorscheme dracula]])
