@@ -256,6 +256,11 @@ local default_plugins = {
 			--end
 		end,
 	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
 }
 local config = require("plugins.configs.lazy_nvim")
 require("lazy").setup(default_plugins, config)
