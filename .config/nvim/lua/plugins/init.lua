@@ -225,7 +225,7 @@ local default_plugins = {
 	--},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		Lazy = false,
+		lazy = false,
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
 		opts = function()
@@ -234,6 +234,33 @@ local default_plugins = {
 		config = function(_, opts)
 			--dofile(vim.g.base46_cache .. "syntax")
 			require("nvim-treesitter.configs").setup(opts)
+		end,
+	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = "BufReadPost",
+		config = function()
+			local rainbow_delimiters = require("rainbow-delimiters")
+
+			vim.g.rainbow_delimiters = {
+				strategy = {
+					[""] = rainbow_delimiters.strategy["global"],
+					vim = rainbow_delimiters.strategy["local"],
+				},
+				query = {
+					[""] = "rainbow-delimiters",
+					lua = "rainbow-blocks",
+				},
+				highlight = {
+					"RainbowDelimiterRed",
+					"RainbowDelimiterYellow",
+					"RainbowDelimiterBlue",
+					"RainbowDelimiterOrange",
+					"RainbowDelimiterGreen",
+					"RainbowDelimiterViolet",
+					"RainbowDelimiterCyan",
+				},
+			}
 		end,
 	},
 	{
