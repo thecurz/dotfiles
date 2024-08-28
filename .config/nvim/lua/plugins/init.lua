@@ -190,6 +190,21 @@ local default_plugins = {
 			vim.g.copilot_tab_fallback = ""
 		end,
 	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		lazy = false,
+		branch = "canary",
+		dependencies = {
+			{ "github/copilot.vim" }, -- or github/copilot.vim
+			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+		},
+		build = "make tiktoken", -- Only on MacOS or Linux
+		opts = {
+			debug = true, -- Enable debugging
+			-- See Configuration section for rest
+		},
+		-- See Commands section for default commands if you want to lazy load on them
+	},
 
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -238,7 +253,8 @@ local default_plugins = {
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",
-		event = "BufReadPost",
+		--event = "BufReadPost",
+		lazy = false,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
