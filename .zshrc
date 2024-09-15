@@ -73,7 +73,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+if command -v ng &> /dev/null; then
+    source <(ng completion script)
+fi
 
 # pnpm
 export PNPM_HOME="/home/curz/.local/share/pnpm"
