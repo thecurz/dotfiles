@@ -22,8 +22,14 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Python
-source /home/curz/miniconda3/etc/profile.d/conda.sh
-export PATH="$HOME/.local/bin:$PATH"
+# Source conda
+if [ -f "/home/curz/miniconda3/etc/profile.d/conda.sh" ]; then
+    source "/home/curz/miniconda3/etc/profile.d/conda.sh"
+fi
+# Source pyenv
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
 
 # Antlr4
 export CLASSPATH=".:/home/curz/opt/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
