@@ -1,5 +1,7 @@
 if [[ "$(uname -s)" == "Linux" && -f "/etc/arch-release" ]]; then
+	if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
     startx
+  fi
 fi
 ### Settings for Languages and Tools ###
 
@@ -37,6 +39,9 @@ export CLASSPATH=".:/home/curz/opt/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
 # Go
 export PATH="$HOME/go/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
+
+# Rust
+source "$HOME/.cargo/env"
 
 # Java
 export PATH="/home/curz/opt/bin/:$PATH"
