@@ -1,6 +1,6 @@
 if [[ "$(uname -s)" == "Linux" && -f "/etc/arch-release" ]]; then
 	if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
-    startx
+    hyprland 
   fi
 fi
 ### Settings for Languages and Tools ###
