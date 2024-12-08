@@ -6,6 +6,7 @@
 ln -s -f ~/dotfiles/.config/nvim ~/.config/
 # hypr
 rm ~/.config/hypr/hyprland.conf && ln -s -f ~/dotfiles/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+ln -s -f ~/dotfiles/.config/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 # git
 ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
 # tmux
