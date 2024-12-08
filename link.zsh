@@ -1,9 +1,11 @@
 # i3
-ln -s -f ~/dotfiles/.config/i3 ~/.config/
-ln -s -f ~/dotfiles/.config/picom ~/config/
+#ln -s -f ~/dotfiles/.config/i3 ~/.config/
+#ln -s -f ~/dotfiles/.config/picom ~/config/
 
 # nvim
 ln -s -f ~/dotfiles/.config/nvim ~/.config/
+# hypr
+rm ~/.config/hypr/hyprland.conf && ln -s -f ~/dotfiles/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
 # git
 ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
 # tmux
