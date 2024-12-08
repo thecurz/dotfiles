@@ -176,6 +176,13 @@ M.setup = function()
 					client.server_capabilities.signatureHelpProvider = false
 				end,
 				capabilities = capabilities,
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--pch-storage=memory",
+					"--clang-tidy",
+					"--header-insertion=never",
+				},
 			})
 		end,
 	})
