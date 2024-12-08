@@ -49,7 +49,7 @@ M.setup = function()
 
 			opts.desc = "LSP rename"
 			vim.keymap.set("n", "<leader>ra", function()
-				require("nvchad.renamer").open()
+				vim.lsp.buf.rename()
 			end, opts)
 
 			opts.desc = "LSP code action"
