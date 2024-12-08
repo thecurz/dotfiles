@@ -41,7 +41,9 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 
 # Rust
-source "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi
 
 # Java
 export PATH="/home/curz/opt/bin/:$PATH"
