@@ -103,6 +103,7 @@ M.setup = function()
 			end, opts)
 		end,
 	})
+
 	local capabilities = cmp_nvim_lsp.default_capabilities()
 	local util = require("lspconfig.util")
 	local servers = { "html", "cssls", "clangd" }
@@ -111,6 +112,17 @@ M.setup = function()
 		function(server_name)
 			lspconfig[server_name].setup({
 				capabilities = capabilities,
+			})
+		end,
+		["lua_lsp"] = function()
+			lspconfig["lua_ls"].setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
 			})
 		end,
 		["clangd"] = function()

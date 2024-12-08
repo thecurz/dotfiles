@@ -3,10 +3,10 @@ local default_plugins = {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
-			"hrsh7th/cmp-buffer", -- source for text in buffer
-			"hrsh7th/cmp-path", -- source for file system paths
-			"L3MON4D3/LuaSnip", -- snippet engine
-			"saadparwaiz1/cmp_luasnip", -- for autocompletion
+			"hrsh7th/cmp-buffer",        -- source for text in buffer
+			"hrsh7th/cmp-path",          -- source for file system paths
+			"L3MON4D3/LuaSnip",          -- snippet engine
+			"saadparwaiz1/cmp_luasnip",  -- for autocompletion
 			"rafamadriz/friendly-snippets", -- useful snippets
 		},
 		config = function()
@@ -28,7 +28,7 @@ local default_plugins = {
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-					["<C-e>"] = cmp.mapping.abort(), -- close completion window
+					["<C-e>"] = cmp.mapping.abort(),   -- close completion window
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
@@ -198,9 +198,9 @@ local default_plugins = {
 			{ "github/copilot.vim" }, -- or github/copilot.vim
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
-		build = "make tiktoken", -- Only on MacOS or Linux
+		build = "make tiktoken",    -- Only on MacOS or Linux
 		opts = {
-			debug = true, -- Enable debugging
+			debug = true,             -- Enable debugging
 			-- See Configuration section for rest
 		},
 		-- See Commands section for default commands if you want to lazy load on them
@@ -228,10 +228,10 @@ local default_plugins = {
 			"TmuxNavigatePrevious",
 		},
 		keys = {
-			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
